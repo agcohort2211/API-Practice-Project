@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="super.css">
+</head>
+
+<h1> Super Hero Image Search</h1>
+
+<div id="input-Button">
+  <input type = "text" id = "input" placeholder="ex : superman ,spider-man, wolverine "> </input>
+  <button id='btn' >Get SuperHero Image</button>
+</div>
+
+<div id="pics"></div>
+
+    <script>
+const inputText = document.getElementById('input')
+
+const getInputValue =(e) =>{
+  const inputText = document.getElementById('input').value;
+  e.preventDefault();
+  getBio(inputText);
+  }
+  
+  document.getElementById("btn").addEventListener('click',getInputValue)
+
+
+const getBio =async (inputText) => {
+try{
+const baseUrl = `https://superheroapi.com/api/131610553166916/search/${inputText}`;
+const response = await fetch (baseUrl,{
+   method:'GET',
+  header: {                                            ///// Required Moesif CORS google extension //////////
+    'Access-Control-Allow-Origin':'*',}
+        }); 
+        //console.log('response', response);
+ const getBioInfo = await response.json();
+/*  console.log(getBioInfo)
+ console.log(getBioInfo.results[0].image)
+ */
+
+  const data = document.createElement('img');
+ 
+  data.src = getBioInfo.results[0].image.url;
+  console.log(data)
+  document.getElementById('pics').appendChild(data);
+
+ 
+
+
+  console.log(getBioInfo); 
+}
+  
+    catch (err) {
+          console.log("There is an error");
+          alert("error")
+    }
+  }
+    //I was able to get the batman data to console by typing it , but need to activate by sumbit button
+
+
+
+ </script>
+</html>

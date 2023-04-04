@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+    color:red;
+    font-weight: 900;
+}
+button{
+    border-radius: 10px;
+    width: 300px;
+    background-image: linear-gradient(to right, red,blue) ;
+    height: 30px;
+    font-weight: 900;
+    font-size: 15px;
+   
+}
+ img{
+    margin:  2em ;
+ }
+ #input{
+width: 290px;
+height: 15px;
+border-radius: 3px;
+display: flex;
+margin-bottom: 3px;
+ }
+
+ body{
+    background-color: rgb(224, 241, 246);
+
+ }
+
+
+
